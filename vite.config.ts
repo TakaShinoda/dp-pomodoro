@@ -6,9 +6,9 @@ export default defineConfig({
   server: {
     open: true
   },
+  publicDir: './dp',
   build: {
-    // root (= ./src) から見た相対パスで指定
-    outDir: '../public',
+    outDir: './public',
   },
   plugins: [react()]
 })
