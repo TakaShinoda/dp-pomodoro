@@ -1,2 +1,2 @@
-# poke-pomodoro
+# dp-pomodoro
 - ポモドーロ・テクニックタイマー
