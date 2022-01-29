@@ -1,45 +1,35 @@
-import { useState } from 'react'
-import logo from './logo.svg'
+import { useState, useEffect, VFC } from 'react'
+import { Timer } from './components/Timer'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App: VFC = () => {
+  const [timer, setTimer] = useState<number>(0)
+
+  const time = new Date()
+  time.setSeconds(time.getSeconds() + timer * 60)
+
+  // 1 ~ 60 までの配列作成
+  const len: number = 61
+  const minutes: number[] = new Array(len).fill(null).map((_, i) => i)
+
+  const settingMinutes = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setTimer(Number(e.target.value))
+  }
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
+        <Timer expiryTimestamp={time} />
+        <form>
+          <select onChange={settingMinutes}>
+            {minutes.map((m, i) => (
+              <option value={m} key={i}>
+                {m}
+              </option>
+            ))}
+          </select>
+        </form>
       </header>
     </div>
   )
 }
-
-export default App
