@@ -9,7 +9,8 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-timer-hook": "^3.0.5"
+    "react-timer-hook": "^3.0.5",
+    "recoil": "^0.6.1"
   },
   "devDependencies": {
     "@types/react": "^17.0.33",
