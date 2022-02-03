@@ -3,21 +3,22 @@ import { Timer } from './components/Timer'
 import { SettingMinutes } from './SettingMinutes'
 import './App.css'
 
+import { useRecoilValue } from 'recoil'
+import { getTimeSelector } from './selectors/getTimeSelector'
+
 export const App: VFC = () => {
-  const [timer, setTimer] = useState<number>(0)
+  // useRecoilValue に selector を渡す
+  const timer = useRecoilValue(getTimeSelector)
+  console.log(timer)
 
   const time = new Date()
   time.setSeconds(time.getSeconds() + timer * 60)
-
-  const settingMinutes = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setTimer(Number(e.target.value))
-  }
 
   return (
     <div className="App">
       <header className="App-header">
         <Timer expiryTimestamp={time} />
-        <SettingMinutes settingMinutes={settingMinutes} />
+        <SettingMinutes />
       </header>
     </div>
   )

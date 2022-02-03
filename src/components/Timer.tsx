@@ -19,10 +19,7 @@ export const Timer = ({ expiryTimestamp }: { expiryTimestamp: any }) => {
 
   useEffect(() => {
     restart(expiryTimestamp)
-
-  }, [expiryTimestamp]);
-  
-
+  }, [expiryTimestamp])
 
   return (
     <>
