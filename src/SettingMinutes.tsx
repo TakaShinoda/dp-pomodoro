@@ -11,10 +11,8 @@ export const SettingMinutes: FC = () => {
   //   const timeStateValue = useRecoilValue(timeState)
 
   // useSetRecoilStateでtimeStateの値を更新するSetter関数を取得
-  const setTimeStateValue: SetterOrUpdater<number> = useSetRecoilState(timeState)
-  console.log('sss')
-  console.log(timeState)
-  console.log('sss')
+  const setTimeStateValue: SetterOrUpdater<number> =
+    useSetRecoilState(timeState)
 
   const settingMinutes = (e: any) => setTimeStateValue(Number(e.target.value))
 

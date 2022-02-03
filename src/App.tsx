@@ -9,7 +9,6 @@ import { getTimeSelector } from './selectors/getTimeSelector'
 export const App: VFC = () => {
   // useRecoilValue に selector を渡す
   const timer = useRecoilValue(getTimeSelector)
-  console.log(timer)
 
   const time = new Date()
   time.setSeconds(time.getSeconds() + timer * 60)
